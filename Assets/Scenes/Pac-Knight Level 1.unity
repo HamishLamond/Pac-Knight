@@ -306,6 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2134501867}
+  - component: {fileID: 2134501868}
   m_Layer: 0
   m_Name: LevelGenerator
   m_TagString: Untagged
@@ -327,3 +328,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2134501868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134501866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a255c5d6f92cbf7499e9e549f7435a1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideWall: {fileID: 8030871492508824922, guid: d233b831c60e1334eaa99cc8faaa6982,
+    type: 3}
+  insideCorner: {fileID: 168519853241778352, guid: 4f61c3082912bc947a1edabca795eb8b,
+    type: 3}
+  outsideWall: {fileID: 1928499484665619440, guid: 5b289bb0fe539714f928a008522809e8,
+    type: 3}
+  outsideCorner: {fileID: 4249025728655501617, guid: 2868c70eebfe758418c1691bb39104ab,
+    type: 3}
+  tJunction: {fileID: 9137493004656649778, guid: 43256920dc116de4c9231b6e323a5711,
+    type: 3}
+  sword: {fileID: 0}
+  armour: {fileID: 5826797633365489068, guid: 7aec0c8179ea2914db482d81f85160bb, type: 3}
