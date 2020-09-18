@@ -174,7 +174,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -350,5 +350,5 @@ MonoBehaviour:
     type: 3}
   tJunction: {fileID: 9137493004656649778, guid: 43256920dc116de4c9231b6e323a5711,
     type: 3}
-  sword: {fileID: 0}
+  sword: {fileID: 5826797633365489068, guid: 7aec0c8179ea2914db482d81f85160bb, type: 3}
   armour: {fileID: 5826797633365489068, guid: 7aec0c8179ea2914db482d81f85160bb, type: 3}
