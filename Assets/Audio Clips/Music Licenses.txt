@@ -1,14 +1,17 @@
 All music is royalty free and used with permission by composers with the following licenses:
 
+GhostsScared and GhostDead have been trimmed from:
 Havoc by PeriTune | http://peritune.com
 Music promoted by https://www.free-stock-music.com
 Attribution 4.0 International (CC BY 4.0)
 https://creativecommons.org/licenses/by/4.0/
 
+LevelMusic has been trimmed from:
 Music: Land of Pirates by Alexander Nakarada (www.serpentsoundstudios.com)
 Licensed under Creative Commons BY Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
 
+Intro has been trimmed from:
 Music: Fantasy Intro Outro 1 by Alexander Nakarada (www.serpentsoundstudios.com)
 Licensed under Creative Commons BY Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
