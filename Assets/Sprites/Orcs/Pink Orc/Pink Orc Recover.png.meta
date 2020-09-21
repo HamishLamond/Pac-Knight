@@ -1,28 +1,13 @@
 fileFormatVersion: 2
-guid: 48f2e4f49aee544dba80c339e216003e
+guid: ea912abc84fd5144f9ba06a0ed1bdc15
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8603191851479730159
-    second: Orc Scared_0
+      213: -2280492158855460239
+    second: Pink Orc Recover_0
   - first:
-      213: -5329615226515358175
-    second: Orc Scared_1
-  - first:
-      213: 5116683613496264945
-    second: Orc Scared_2
-  - first:
-      213: 8144425967372454906
-    second: Orc Scared_3
-  - first:
-      213: -2046491996421338216
-    second: Orc Scared_4
-  - first:
-      213: 1535492246133567354
-    second: Orc Scared_5
-  - first:
-      213: -8419106140769754648
-    second: Orc Scared_6
+      213: -9148101725916577159
+    second: Pink Orc Recover_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -179,70 +164,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Orc Scared_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe70cf1486da46770800000000000000
-      internalID: 8603191851479730159
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Orc Scared_1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12ef90260376906b0800000000000000
-      internalID: -5329615226515358175
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Orc Scared_2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f8c18a13ac120740800000000000000
-      internalID: 5116683613496264945
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Orc Scared_3
+      name: Pink Orc Recover_0
       rect:
         serializedVersion: 2
         x: 0
@@ -256,56 +178,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afbc3bc2440d60170800000000000000
-      internalID: 8144425967372454906
+      spriteID: 17a4b5ec6701a50e0800000000000000
+      internalID: -2280492158855460239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orc Scared_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89b40ad3f566993e0800000000000000
-      internalID: -2046491996421338216
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Orc Scared_5
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7f682eff0a2f4510800000000000000
-      internalID: 1535492246133567354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Orc Scared_6
+      name: Pink Orc Recover_1
       rect:
         serializedVersion: 2
         x: 0
@@ -319,8 +199,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e1eb114293592b80800000000000000
-      internalID: -8419106140769754648
+      spriteID: 972ca91f2f96b0180800000000000000
+      internalID: -9148101725916577159
       vertices: []
       indices: 
       edges: []
