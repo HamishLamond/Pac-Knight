@@ -44,10 +44,11 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        generateLevel(1, 1, rowValues, 0, 0, 0, 0);
-        generateLevel(1, -1, rowValues - 1, 0, -2, 180, 0);
-        generateLevel(-1, 1, rowValues, 1, 0, 0, 180);
-        generateLevel(-1, -1, rowValues - 1, 1, -2, 180, 180);
+        //Calls GenerateLevel 4 times, each time generating a different quadrant of the level.
+        GenerateLevel(1, 1, rowValues, 0, 0, 0, 0);
+        GenerateLevel(1, -1, rowValues - 1, 0, -2, 180, 0);
+        GenerateLevel(-1, 1, rowValues, 1, 0, 0, 180);
+        GenerateLevel(-1, -1, rowValues - 1, 1, -2, 180, 180);
     }
 
     // Update is called once per frame
@@ -56,7 +57,10 @@ public class LevelGenerator : MonoBehaviour
         
     }
 
-    public void generateLevel(int xMultiplier, int yMultiplier, int numberOfRows, int xModifier, int yModifier,int xRotationChange, int yRotationChange)
+    //Used to generate a quadrant of the map. xMultiplier and yMultiplier helps determine the x and y polarity for the placement of the objects. numberOfRows is used to stop generating the extra row in
+    //the middle of the level. xModifier and yModifier moves the quadrant over by the given number of spaces to make the level fit together. xRotationChange and yRotationChange rotate each quadrant
+    //so they don't all face the same way.
+    public void GenerateLevel(int xMultiplier, int yMultiplier, int numberOfRows, int xModifier, int yModifier,int xRotationChange, int yRotationChange)
     {
         int currentValue;
         for (int row = 0; row < numberOfRows; ++row)
@@ -64,25 +68,26 @@ public class LevelGenerator : MonoBehaviour
             for (int column = 0; column < columnValues; ++column)
             {
                 currentValue = levelMap[row, column];
+                //Based on the current levelMap value, the corresponding level element is created at the approrpiate location.
                 switch (currentValue)
                 {
                     case 0:
                         break;
                     case 1:
                         temp = Instantiate(outsideCorner, new Vector2((column - 14 + xModifier) * xMultiplier, (15 - row + yModifier) * yMultiplier), Quaternion.identity);
-                        outsideCornerRotate(temp, row, column, xRotationChange, yRotationChange);
+                        OutsideCornerRotate(temp, row, column, xRotationChange, yRotationChange);
                         break;
                     case 2:
                         temp = Instantiate(outsideWall, new Vector2((column - 14 + xModifier) * xMultiplier, (15 - row + yModifier) * yMultiplier), Quaternion.identity);
-                        outsideWallRotate(temp, row, column);
+                        OutsideWallRotate(temp, row, column);
                         break;
                     case 3:
                         temp = Instantiate(insideCorner, new Vector2((column - 14 + xModifier) * xMultiplier, (15 - row + yModifier) * yMultiplier), Quaternion.identity);
-                        insideCornerRotate(temp, row, column, xRotationChange, yRotationChange);
+                        InsideCornerRotate(temp, row, column, xRotationChange, yRotationChange);
                         break;
                     case 4:
                         temp = Instantiate(insideWall, new Vector2((column - 14 + xModifier) * xMultiplier, (15 - row + yModifier) * yMultiplier), Quaternion.identity);
-                        insideWallRotate(temp, row, column);
+                        InsideWallRotate(temp, row, column);
                         break;
                     case 5:
                         temp = Instantiate(armour, new Vector2((column - 14 + xModifier) * xMultiplier, (15 - row + yModifier) * yMultiplier), Quaternion.identity);
@@ -92,7 +97,7 @@ public class LevelGenerator : MonoBehaviour
                         break;
                     case 7:
                         temp = Instantiate(tJunction, new Vector2((column - 14 + xModifier) * xMultiplier, (15 - row + yModifier) * yMultiplier), Quaternion.identity);
-                        tJunctionRotate(temp, row, column, xRotationChange, yRotationChange);
+                        TJunctionRotate(temp, row, column, xRotationChange, yRotationChange);
                         break;
                     default:
                         break;
@@ -101,7 +106,8 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    public void insideWallRotate(GameObject wall, int row, int column)
+    //Determines the wall rotation based on what objects are above, below, left, and right of the current wall.
+    public void InsideWallRotate(GameObject wall, int row, int column)
     {
         bool aboveLink = false;
         bool belowLink = false;
@@ -110,28 +116,28 @@ public class LevelGenerator : MonoBehaviour
 
         if (column > 0)
         {
-            if (arrayComparer(row, column - 1, 3) || arrayComparer(row, column - 1, 4))
+            if (ArrayComparer(row, column - 1, 3) || ArrayComparer(row, column - 1, 4))
             {
                 leftLink = true;
             }
         }
         if (column < columnValues - 1)
         {
-            if (arrayComparer(row, column + 1, 3) || arrayComparer(row, column + 1, 4))
+            if (ArrayComparer(row, column + 1, 3) || ArrayComparer(row, column + 1, 4))
             {
                 rightLink = true;
             }
         }
         if (row > 0)
         {
-            if (arrayComparer(row - 1, column, 3) || arrayComparer(row - 1, column, 4))
+            if (ArrayComparer(row - 1, column, 3) || ArrayComparer(row - 1, column, 4))
             {
                 aboveLink = true;
             }
         }
         if (row < rowValues - 1)
         {
-            if (arrayComparer(row + 1, column, 3) || arrayComparer(row + 1, column, 4))
+            if (ArrayComparer(row + 1, column, 3) || ArrayComparer(row + 1, column, 4))
             {
                 belowLink = true;
             }
@@ -139,12 +145,14 @@ public class LevelGenerator : MonoBehaviour
 
         if ((leftLink == true || rightLink == true) && (aboveLink != true || belowLink != true))
         {
-            temp.transform.Rotate(0, 0, 90);
+            wall.transform.Rotate(0, 0, 90);
         }
 
     }
 
-    public void insideCornerRotate(GameObject corner, int row, int column, int xRotationChange, int yRotationChange)
+    //Determines the rotation of the corner based on the objects above, below, left, and right of the corner. First figures out if it is connecting to walls, and then if it is connecting to corners.
+    //Uses xRotationChange and yRotationChange to help rotate the corner based on the level quadrant it is being placed in.
+    public void InsideCornerRotate(GameObject corner, int row, int column, int xRotationChange, int yRotationChange)
     {
         bool aboveLink = false;
         bool bottomLink = false;
@@ -249,20 +257,21 @@ public class LevelGenerator : MonoBehaviour
 
     }
 
-    public void outsideCornerRotate(GameObject corner, int row, int column, int xRotationChange, int yRotationChange)
+    //Determines the rotation of the corner based on the objects above and left of the corner.
+    public void OutsideCornerRotate(GameObject corner, int row, int column, int xRotationChange, int yRotationChange)
     {
         bool aboveLink = false;
         bool leftLink = false;
         if (row > 0)
         {
-            if (arrayComparer(row - 1, column, 2))
+            if (ArrayComparer(row - 1, column, 2))
             {
                 aboveLink = true;
             }
         }
         if (column > 0)
         {
-            if (arrayComparer(row, column - 1, 2))
+            if (ArrayComparer(row, column - 1, 2))
             {
                 leftLink = true;
             }
@@ -285,44 +294,47 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    public void outsideWallRotate(GameObject wall, int row, int column)
+    //Determines the rotation of the wall based on the object above the wall.
+    public void OutsideWallRotate(GameObject wall, int row, int column)
     {
         if (row > 0)
         {
-            if (arrayComparer(row - 1, column, 1) || arrayComparer(row - 1, column, 2))
+            if (ArrayComparer(row - 1, column, 1) || ArrayComparer(row - 1, column, 2))
             {
-                temp.transform.Rotate(0, 0, 90);
+                wall.transform.Rotate(0, 0, 90);
             }
         }
     }
 
-    public void tJunctionRotate(GameObject junction, int row, int column, int xRotationChange, int yRotationChange)
+    //Determines the rotation of the t-junction based on the objects above, below, left and right of the corner.
+    public void TJunctionRotate(GameObject junction, int row, int column, int xRotationChange, int yRotationChange)
     {
         
         if (row > 0)
         {
-            if (arrayComparer(row - 1, column, 2))
+            if (ArrayComparer(row - 1, column, 2))
             {
                 junction.transform.Rotate(0 + xRotationChange, 0 + yRotationChange, 180);
             }
         }
         if (column > 0)
         {
-            if (arrayComparer(row, column - 1, 2))
+            if (ArrayComparer(row, column - 1, 2))
             {
                 junction.transform.Rotate(0 + xRotationChange, 0 + yRotationChange, 270);
             }
         }
         if (row < rowValues - 1)
         {
-            if (arrayComparer(row + 1, column, 2))
+            if (ArrayComparer(row + 1, column, 2))
             {
                 junction.transform.Rotate(0 + xRotationChange, 0 + yRotationChange, 90 );
             }
         }
     }
 
-    public bool arrayComparer(int x, int y, int comparedValue)
+    //Compares a value from the levelMap array to another value. If they are equal, return true, else return false.
+    public bool ArrayComparer(int x, int y, int comparedValue)
     {
         if (levelMap[x, y] == comparedValue)
         {

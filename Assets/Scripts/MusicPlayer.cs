@@ -9,6 +9,7 @@ public class MusicPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Plays the first song in the songs array.
         GetComponent<AudioSource>().clip = songs[0];
         GetComponent<AudioSource>().Play();
     }
@@ -16,6 +17,7 @@ public class MusicPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If nothing is playing, play the second song in the songs array.
         if(GetComponent<AudioSource>().isPlaying == false)
         {
             GetComponent<AudioSource>().clip = songs[1];

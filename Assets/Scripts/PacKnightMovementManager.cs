@@ -21,7 +21,7 @@ public class PacKnightMovementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(pacKnight.transform.position);
+        //Moves Pac-Knight based on when he hits certain points on the level.
         if (pacKnight.transform.position == topLeftPosition)
         {
             tweener.AddTween(pacKnight.transform, pacKnight.transform.position, topRightPosition, 2.5f);
