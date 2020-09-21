@@ -11,6 +11,7 @@ public class ObjectSoundPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Loads the Pac-Knight walking audio clip from soundClips.
         GetComponent<AudioSource>().clip = soundClips[0];
         lastTime = 0;
         timer = 0;
@@ -19,6 +20,7 @@ public class ObjectSoundPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Plays the Pac-Knight walking audio clip every .5 seconds as long as nothing is already playing.
         timer += Time.deltaTime;
         if (timer > (lastTime + .5))
         {
