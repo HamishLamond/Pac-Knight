@@ -23,7 +23,6 @@ public class ObjectSoundPlayer : MonoBehaviour
         if (timer > (lastTime + .5))
         {
             lastTime = timer;
-            Debug.Log(lastTime);
             if (GetComponent<AudioSource>().isPlaying == false)
             {
                 GetComponent<AudioSource>().Play();
