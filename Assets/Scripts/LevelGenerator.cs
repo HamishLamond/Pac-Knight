@@ -75,6 +75,7 @@ public class LevelGenerator : MonoBehaviour
                         break;
                     case 1:
                         temp = Instantiate(outsideCorner, new Vector2((column - 14 + xModifier) * xMultiplier, (15 - row + yModifier) * yMultiplier), Quaternion.identity);
+
                         OutsideCornerRotate(temp, row, column, xRotationChange, yRotationChange);
                         break;
                     case 2:
@@ -102,6 +103,7 @@ public class LevelGenerator : MonoBehaviour
                     default:
                         break;
                 }
+                temp.transform.parent = gameObject.transform;
             }
         }
     }
