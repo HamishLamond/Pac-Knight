@@ -31,7 +31,6 @@ public class CherryController : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= 30)
         {
-            Debug.Log("workshere");
             CreateCherry();
             timer = 0;
         }

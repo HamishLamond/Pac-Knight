@@ -116,22 +116,6 @@ public class PacStudentController : MonoBehaviour
                 RemoveMovementTriggers();
             }
         }
-        //if (gameObject.transform.position == topLeftPosition)
-        //{
-        //    tweener.AddTween(gameObject.transform, gameObject.transform.position, topRightPosition, 2.5f);
-        //}
-        //if (pacKnight.transform.position == topRightPosition)
-        //{
-        //    tweener.AddTween(gameObject.transform, gameObject.transform.position, bottomRightPosition, 2f);
-        //}
-        //if (pacKnight.transform.position == bottomRightPosition)
-        //{
-        //    tweener.AddTween(gameObject.transform, gameObject.transform.position, bottomLeftPosition, 2.5f);
-        //}
-        //if (pacKnight.transform.position == bottomLeftPosition)
-        //{
-        //    tweener.AddTween(gameObject.transform, gameObject.transform.position, topLeftPosition, 2f);
-        //}
     }
 
     IEnumerator ExecuteAfterTime(float time)

@@ -51,7 +51,6 @@ public class CubeController : MonoBehaviour
 
     private void ChangeColourYellow()
     {
-        Debug.Log(lastTime);
         if (lastTime % 3 == 0)
         {
             renderer.material = yellowMaterial;
